@@ -6,13 +6,13 @@
 #    By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 14:29:28 by jyao              #+#    #+#              #
-#    Updated: 2023/10/14 16:06:50 by jyao             ###   ########.fr        #
+#    Updated: 2023/10/14 16:50:29 by jyao             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#-*- Makefile ex02 -*-
+#-*- Makefile ex03 -*-
 
-NAME			:=	form.exe
+NAME			:=	intern.exe
 
 DIR_BUREAUCRAT	:=	./Bureaucrat/
 
@@ -22,9 +22,13 @@ DIR_FORM		:=	./Form/
 
 LIB_FORM		=	$(DIR_FORM)libform.a
 
-INCLUDES		=	-I$(DIR_BUREAUCRAT)	-I$(DIR_FORM)
+DIR_INTERN		:=	./Intern/
 
-LIBRARIES		=	$(LIB_BUREACRAT)	$(LIB_FORM)
+LIB_INTERN		=	$(DIR_INTERN)libintern.a
+
+INCLUDES		=	-I$(DIR_BUREAUCRAT)	-I$(DIR_FORM)	-I$(DIR_INTERN)
+
+LIBRARIES		=	$(LIB_BUREACRAT)	$(LIB_FORM)	$(LIB_INTERN)
 
 CC				:=	c++
 
@@ -46,6 +50,7 @@ all: dependency $(NAME)
 dependency:
 	make -C $(DIR_BUREAUCRAT)
 	make -C $(DIR_FORM)
+	make -C $(DIR_INTERN)
 
 $(NAME): $(LIBRARIES) $(OBJSFOLDER) $(OBJS)
 	$(CC) $(LIBRARIES) $(OBJS) -o $@
@@ -57,11 +62,13 @@ clean:
 	rm -rf $(OBJSFOLDER)
 	make clean -C $(DIR_BUREAUCRAT)
 	make clean -C $(DIR_FORM)
+	make clean -C $(DIR_INTERN)
 
 fclean: clean
 	rm -rf $(NAME)
 	make fclean -C $(DIR_BUREAUCRAT)
 	make fclean -C $(DIR_FORM)
+	make fclean -C $(DIR_INTERN)
 
 re: fclean all
 

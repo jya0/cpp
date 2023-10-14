@@ -6,7 +6,7 @@
 /*   By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:27:54 by jyao              #+#    #+#             */
-/*   Updated: 2023/10/14 15:27:04 by jyao             ###   ########.fr       */
+/*   Updated: 2023/10/14 17:03:02 by jyao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	pauseFunction()
 {
 	std::cout << "Press enter to continue... ";
 	std::cin.get();
+	std::cout << std::endl;
 }
 
 int	main(void)

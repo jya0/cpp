@@ -6,12 +6,19 @@
 /*   By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:27:54 by jyao              #+#    #+#             */
-/*   Updated: 2023/10/13 17:38:13 by jyao             ###   ########.fr       */
+/*   Updated: 2023/10/14 17:03:02 by jyao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Bureaucrat.hpp"
 #include	"Form.hpp"
+
+static void	pauseFunction()
+{
+	std::cout << "Press enter to continue... ";
+	std::cin.get();
+	std::cout << std::endl;
+}
 
 int	main(void)
 {
@@ -27,6 +34,7 @@ int	main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
+		pauseFunction();
 	}
 	{
 		std::cout << "____________________________________" << std::endl;
@@ -40,6 +48,7 @@ int	main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
+		pauseFunction();
 	}
 	{
 		std::cout << "____________________________________" << std::endl;
@@ -57,6 +66,7 @@ int	main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
+		pauseFunction();
 	}
 	{
 		std::cout << "____________________________________" << std::endl;
@@ -74,6 +84,7 @@ int	main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
+		pauseFunction();
 	}
 	{
 		std::cout << "____________________________________" << std::endl;
@@ -95,6 +106,7 @@ int	main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
+		pauseFunction();
 	}
 	return (0);
 }
