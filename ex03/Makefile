@@ -6,7 +6,7 @@
 #    By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 14:29:28 by jyao              #+#    #+#              #
-#    Updated: 2023/10/14 16:50:29 by jyao             ###   ########.fr        #
+#    Updated: 2023/10/14 19:43:04 by jyao             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIB_INTERN		=	$(DIR_INTERN)libintern.a
 
 INCLUDES		=	-I$(DIR_BUREAUCRAT)	-I$(DIR_FORM)	-I$(DIR_INTERN)
 
-LIBRARIES		=	$(LIB_BUREACRAT)	$(LIB_FORM)	$(LIB_INTERN)
+LIBRARIES		=	$(LIB_BUREACRAT)	$(LIB_INTERN)	$(LIB_FORM)
 
 CC				:=	c++
 
@@ -53,7 +53,7 @@ dependency:
 	make -C $(DIR_INTERN)
 
 $(NAME): $(LIBRARIES) $(OBJSFOLDER) $(OBJS)
-	$(CC) $(LIBRARIES) $(OBJS) -o $@
+	$(CC) $(OBJS) $(LIBRARIES) -o $@
 
 $(OBJSFOLDER):
 	mkdir -p $@

@@ -6,7 +6,7 @@
 /*   By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:19:45 by jyao              #+#    #+#             */
-/*   Updated: 2023/10/14 17:07:42 by jyao             ###   ########.fr       */
+/*   Updated: 2023/10/14 19:44:16 by jyao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ AForm	*Intern::makeForm(std::string formType, std::string target) const
 {
 	AForm	*(Intern::*createFormFuncPTR)(std::string) const;
 
-	createFormFuncPTR = nullptr;
+	createFormFuncPTR = NULL;
 	createFormFuncPTR = (createFormFuncPTR == NULL && !formType.compare(SCF_NAME)) ? &Intern::createShrubberyCreationF : createFormFuncPTR;
 	createFormFuncPTR = (createFormFuncPTR == NULL && !formType.compare(RRF_NAME)) ? &Intern::createRobotomyRequestF : createFormFuncPTR;
 	createFormFuncPTR = (createFormFuncPTR == NULL && !formType.compare(PPF_NAME)) ? &Intern::createPresidentialPardonF : createFormFuncPTR;
-	if (createFormFuncPTR == nullptr)
+	if (createFormFuncPTR == NULL)
 	{
 		std::cerr << "Invalid form type: "
 			<< formType
@@ -66,3 +66,30 @@ AForm	*Intern::makeForm(std::string formType, std::string target) const
 	}
 	return ((this->*createFormFuncPTR)(target));
 };
+
+/* AForm	*Intern::makeForm(std::string formType, std::string target) const
+{
+	Intern::t_create_form_func	createFormFunc;
+
+	createFormFunc = NULL;
+	for (int i = 0; i < T_FORM_COUNT; ++i)
+	{
+		if (!Intern::formTypes[i].compare(formType))
+		{
+			createFormFunc = Intern::createFormFuncs[i];
+			break ;
+		}
+	}
+	if (createFormFunc == NULL)
+	{
+		std::cerr << "Invalid form type: "
+			<< formType
+			<< std::endl;
+		throw (Intern::InvalidFormTypeException());
+	}
+	return ((this->*createFormFunc)(target));
+}; */
+
+const std::string					Intern::formTypes[T_FORM_COUNT] = {SCF_NAME, RRF_NAME, PPF_NAME};
+
+const Intern::t_create_form_func	Intern::createFormFuncs[T_FORM_COUNT] = {&Intern::createShrubberyCreationF, &Intern::createRobotomyRequestF, &Intern::createPresidentialPardonF};

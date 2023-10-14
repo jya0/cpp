@@ -6,7 +6,7 @@
 /*   By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:07:55 by jyao              #+#    #+#             */
-/*   Updated: 2023/10/14 14:49:24 by jyao             ###   ########.fr       */
+/*   Updated: 2023/10/14 19:45:17 by jyao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ShruberryCreationForm::executeAction(void) const
 {
 	std::ofstream	fileOut;
 
-	fileOut.open(getTarget() + FILE_NAME_EXT, std::ios::out | std::ios::app);
+	fileOut.open(std::string(getTarget() + FILE_NAME_EXT).c_str(), std::ios::out | std::ios::app);
 	if (fileOut.is_open())
 	{
 		fileOut << TREE_ASCII

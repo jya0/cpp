@@ -6,7 +6,7 @@
 #    By: jyao <jyao@student.42abudhabi.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 14:29:28 by jyao              #+#    #+#              #
-#    Updated: 2023/10/14 16:06:50 by jyao             ###   ########.fr        #
+#    Updated: 2023/10/14 19:45:47 by jyao             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ dependency:
 	make -C $(DIR_FORM)
 
 $(NAME): $(LIBRARIES) $(OBJSFOLDER) $(OBJS)
-	$(CC) $(LIBRARIES) $(OBJS) -o $@
+	$(CC) $(OBJS) $(LIBRARIES) -o $@
 
 $(OBJSFOLDER):
 	mkdir -p $@
